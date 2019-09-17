@@ -15,6 +15,8 @@ public class DailyCodingProblem {
 		/*create substring beginning at start and check each letter once 
 		the max distinct k limit is reached, use that index number for 
 		the end of the substring(+1)*/
+		
+		
 
 	}
 
