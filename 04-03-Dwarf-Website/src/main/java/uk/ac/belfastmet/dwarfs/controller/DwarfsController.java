@@ -25,7 +25,11 @@ public class DwarfsController {
 	}
 	
 	@GetMapping("/tolkien")
-	public String tolkienPage() {
+	public String tolkienPage(Model model) {
+		DwarfService dwarfService = new DwarfService();
+		model.addAttribute("pageTitle","Tolkien Dwarves");
+		model.addAttribute("dwarfs",dwarfService.getTolkienDwarves());
+		
 		return "tolkien";
 	}
 }

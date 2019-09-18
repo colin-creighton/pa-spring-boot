@@ -40,7 +40,22 @@
 
 <div class="container">
 
-<p>This site will contain information about children's movies…
+<p>This site will contain information about children's movies...</p>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Picture</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="dwarf:${dwarfs}">
+					<td th:text="${dwarf.name}"></td>
+					<td><img th:src="@{|/img/${dwarf.image}|}"/></td>
+				</tr>
+			</tbody>
+		</table>
 
 </div>
 
