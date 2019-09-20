@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import uk.ac.belfastmet.toptenmusic.service.TopTenMusicService;
 
 @Controller
-@RequestMapping
+@RequestMapping()
 public class TopTenMusicController {
 	
 	@GetMapping()
@@ -15,7 +15,7 @@ public class TopTenMusicController {
 		return "index";
 	}
 	
-	@GetMapping("/singles")
+	@RequestMapping(value="/singles",method=RequestMethod.GET)
 	public String disneyPage(Model model) {
 		TopTenMusicService topTenService = new TopTenMusicService();
 		model.addAttribute("pageTitle","Top Ten Singles");
@@ -24,13 +24,18 @@ public class TopTenMusicController {
 		return "singles";
 	}
 	
-	@GetMapping("/albums")
+	@RequestMapping(value="/albums",method=RequestMethod.GET)
 	public String tolkienPage(Model model) {
 		TopTenMusicService topTenService = new TopTenMusicService();
 		model.addAttribute("pageTitle","Top Ten Albums");
 		model.addAttribute("topTen",topTenService.getTopTenAlbums());
 		
 		return "albums";
+	}
+	
+	@RequestMapping(value="/error",method=RequestMethod.GET)
+	public String errorPage() {
+		return "error";
 	}
 
 }

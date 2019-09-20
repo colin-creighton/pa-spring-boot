@@ -13,10 +13,37 @@
 	<!-- Custom Styles  -->
 
 <title th:text="${pageTitle}"></title>
+<style type="text/css">
+.bg-cover {
+	background-image: url("/img/jumbobg.jpg");
+	background-position: center center;
+	position: relative;
+	z-index: -2;
+	/*filter: blur(2px);*/
+}
+
+.overlay {
+	background-color: #000;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+}
+
+.jumbotron {
+	text-align: center;
+	padding-top: 10rem;
+	padding-bottom: 10rem;
+	text-shadow: 2px 2px #000;
+}
+</style>
 </head>
 
-<body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<body class="text-white bg-secondary">
+<nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
   <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link" href="/">Home</a>
@@ -29,8 +56,8 @@
     </li>
   </ul>
 </nav>
-<div class="jumbotron text-center">
-
+<div class="jumbotron text-center bg-cover">
+<div class="overlay"></div>
 <h1>Top Ten Singles in 1945</h1>
 <h2></h2>
 <br />
@@ -42,7 +69,7 @@
 
 <p>This site will contain information about the Top Ten Music in 1945</p>
 
-		<table class="table table-striped">
+		<table class="table table-striped table-dark">
 			<thead>
 				<tr>
 					<th class="text-center">Title</th>
