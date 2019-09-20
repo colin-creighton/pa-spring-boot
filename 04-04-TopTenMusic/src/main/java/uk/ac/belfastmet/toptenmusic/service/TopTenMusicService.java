@@ -26,9 +26,9 @@ public class TopTenMusicService {
 	public ArrayList<TopTenMusic> getTopTenSingles() {
 		this.topTenSingles = new ArrayList<TopTenMusic>();
 
-		this.topTenSingles.add(new TopTenMusic("Don't Fence Me In", "Bing Crosby", "cover2.jpg"));
-		this.topTenSingles.add(new TopTenMusic("Rum and Coca-Cola", "Andrews Sisters", "cover2.jpg"));
-		this.topTenSingles.add(new TopTenMusic("Till the End of Time", "Perry Como", "cover2.jpg"));
+		this.topTenSingles.add(new TopTenMusic("Don't Fence Me In", "Bing Crosby", "sing1.jpg"));
+		this.topTenSingles.add(new TopTenMusic("Rum and Coca-Cola", "Andrews Sisters", "sing2.jpg"));
+		this.topTenSingles.add(new TopTenMusic("Till the End of Time", "Perry Como", "sing3.jpg"));
 		
 		return topTenSingles;
 

@@ -45,15 +45,16 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Name</th>
-					<th>Picture</th>
+					<th class="text-center">Title</th>
+					<th class="text-center">Artist</th>
+					<th class="text-center">Cover</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="single:${topTen}">
-					<td th:text="${single.title}"></td>
-					<td th:text="${single.artist}"></td>
-					<td><img th:src="@{|/img/${single.cover}|}" height="200px" width="200px"/></td>
+					<td class="text-center align-middle" th:text="${single.title}"></td>
+					<td class="text-center align-middle" th:text="${single.artist}"></td>
+					<td class="text-center align-middle" ><img th:src="@{|/img/${single.cover}|}" height="200px" width="200px"/></td>
 				</tr>
 			</tbody>
 		</table>
