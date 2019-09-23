@@ -5,12 +5,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import uk.ac.belfastmet.todoapp.service.ToDoAppService;
 
 
 @Controller
-@RequestMapping()
+@RequestMapping
 public class ToDoAppController {
 	
 	Logger logger = LoggerFactory.getLogger(ToDoAppController.class);
@@ -20,7 +21,7 @@ public class ToDoAppController {
 	 * @return the index page
 	 */
 	
-	@RequestMapping("/")
+	@RequestMapping(value="", method= RequestMethod.GET)
 	public String homePage(Model model) {
 		ToDoAppService myToDoService = new ToDoAppService();
 		model.addAttribute("pageTitle","My To Do List");
@@ -28,5 +29,7 @@ public class ToDoAppController {
 		logger.info("Index Page Loaded");
 		return "index";
 	}
+	
+	
 
 }
