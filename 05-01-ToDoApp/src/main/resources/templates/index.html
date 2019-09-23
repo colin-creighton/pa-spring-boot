@@ -82,9 +82,9 @@
 				<tr th:each="task:${tasks}">
 					<td class="text-center align-middle" th:text="${task.title}"></td>
 					<td class="text-center align-middle" th:text="${task.description}"></td>
-					<td class="text-center align-middle" th:text="${task.priority}"></td>
+					<td class="text-center align-middle" th:class="${task.priority>2}?'text-danger':'text-success'" th:text="${task.priority>1}?(${task.priority>2}?'High':'Medium'):'Low'"></td>
 					<td class="text-center align-middle" th:text="${task.completionDate}"></td>
-					<td class="text-center align-middle" th:text="${task.status}"></td>
+					<td class="text-center align-middle" th:text="${task.status}?'Complete':'Not Complete'"></td>
 					<td class="text-center align-middle" th:text="${task.user}"></td>
 			
 				</tr>
