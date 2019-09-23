@@ -14,11 +14,22 @@ public class TopTenMusicController {
 	
 	Logger logger = LoggerFactory.getLogger(TopTenMusicController.class);
 	
+	/**
+	 * This method sets home page and outputs log message
+	 * @return the index page
+	 */
+	
 	@RequestMapping("/")
 	public String homePage() {
 		logger.info("Index Page Loaded");
 		return "index";
 	}
+	
+	/**
+	 * This method sets home page and outputs log message
+	 * @param model The model of the singles
+	 * @return the singles page
+	 */
 	
 	@RequestMapping(value="/singles",method=RequestMethod.GET)
 	public String disneyPage(Model model) {
@@ -28,6 +39,12 @@ public class TopTenMusicController {
 		logger.info("Singles Page Loaded");
 		return "singles";
 	}
+	
+	/**
+	 * This method sets home page and outputs log message
+	 * @param model The model of the albums
+	 * @return the albums page
+	 */
 	
 	@RequestMapping(value="/albums",method=RequestMethod.GET)
 	public String tolkienPage(Model model) {
