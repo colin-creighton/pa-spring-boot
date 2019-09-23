@@ -25,14 +25,15 @@ public class TopTenMusicController {
 		return "index";
 	}
 	
+
+	
+	@RequestMapping(value="/singles",method=RequestMethod.GET)
 	/**
 	 * This method sets home page and outputs log message
 	 * @param model The model of the singles
 	 * @return the singles page
 	 */
-	
-	@RequestMapping(value="/singles",method=RequestMethod.GET)
-	public String disneyPage(Model model) {
+	public String singlesPage(Model model) {
 		TopTenMusicService topTenService = new TopTenMusicService();
 		model.addAttribute("pageTitle","Top Ten Singles");
 		model.addAttribute("topTen",topTenService.getTopTenSingles());
@@ -47,7 +48,7 @@ public class TopTenMusicController {
 	 */
 	
 	@RequestMapping(value="/albums",method=RequestMethod.GET)
-	public String tolkienPage(Model model) {
+	public String albumsPage(Model model) {
 		TopTenMusicService topTenService = new TopTenMusicService();
 		model.addAttribute("pageTitle","Top Ten Albums");
 		model.addAttribute("topTen",topTenService.getTopTenAlbums());
