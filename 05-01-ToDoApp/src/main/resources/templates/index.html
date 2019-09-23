@@ -16,7 +16,7 @@
 <!-- Custom Styles  -->
 <style type="text/css">
 .bg-cover {
-	background-image: url("/img/jumbobg.jpg");
+	background-image: url("/img/todobg.jpg");
 	background-position: center center;
 	position: relative;
 	z-index: -2;
@@ -39,6 +39,10 @@
 	padding-top: 10rem;
 	padding-bottom: 10rem;
 	text-shadow: 2px 2px #000;
+}
+</style>
+<style id="style" type="text/css">
+tr{
 }
 </style>
 <title th:text="${pageTitle}"></title>
@@ -66,8 +70,9 @@
 		<p>Tasks go here</p>
 		
 		<button type="button" id="loginBtn" onclick="login()" class="btn btn-success">Login</button>
-
-		<table id="tasksTbl" class="table table-striped table-dark" style="visibility:hidden">
+		<button type="button" id="uncompleteBtn" onclick="filterOn()" class="btn" style="visibility:hidden">Show Tasks ToDo</button>
+		<br />
+		<table id="tasksTbl" class="table table-striped table-dark mt-5" style="visibility:hidden">
 			<thead>
 				<tr>
 					<th class="text-center">Task</th>
@@ -79,12 +84,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="task:${tasks}">
+				<tr th:each="task,iter:${tasks}" th:id="${iter.index}+'row'">
 					<td class="text-center align-middle" th:text="${task.title}"></td>
 					<td class="text-center align-middle" th:text="${task.description}"></td>
+					<!--  this checks the priority and adds a bootstrap class to colour the text depending on the severity of the priority. Also turns the number into hooman words -->
 					<td class="text-center align-middle" th:class="${task.priority>2}?'text-danger':'text-success'" th:text="${task.priority>1}?(${task.priority>2}?'High':'Medium'):'Low'"></td>
 					<td class="text-center align-middle" th:text="${task.completionDate}"></td>
-					<td class="text-center align-middle" th:text="${task.status}?'Complete':'Not Complete'"></td>
+					<!--  checks if the boolean status is true and sets task to complete or not complete if false -->
+					<!-- <td class="text-center align-middle" th:text="${task.status}?'Complete':'Not Complete'"></td> -->
+					<td class="text-center align-middle"><input type="checkbox" th:checked="${task.status}" th:onchange="setComplete(this)"></td>
 					<td class="text-center align-middle" th:text="${task.user}"></td>
 			
 				</tr>
@@ -97,7 +105,15 @@
 <!-- hides the table of tasks until the user has logged in by clicking the button -->
 function login() {
   document.getElementById("tasksTbl").style.visibility="visible";
+  document.getElementById("uncompleteBtn").style.visibility="visible";
   document.getElementById("loginBtn").style.visibility="hidden";
 };
+function filterOn(){
+	document.getElementById("style").innerHTML += 'tr.complete{display: none}';
+};
+function setComplete(elemnt){
+	elemnt.parentElement.parentElement.classList.toggle("complete");
+}
+
 </script>
 </html>
