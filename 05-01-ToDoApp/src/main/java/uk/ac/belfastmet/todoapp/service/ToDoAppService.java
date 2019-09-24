@@ -1,6 +1,8 @@
 package uk.ac.belfastmet.todoapp.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,8 +43,14 @@ public class ToDoAppService {
 	}*/
 
 	
-	public void getNumberOfTasks()
+	public Iterable<ToDo> getNumberOfTasks()
 	{
 		logger.info("# of tasks: {}", todoRepository.count());
+		
+		Iterable <ToDo> toDoTasks = todoRepository.findAll();
+		Iterator <ToDo> iterator = toDoTasks.iterator();
+		while(iterator.hasNext()) {
+			logger.info("{}",iterator.next().toString());
+		}
 	}
 }

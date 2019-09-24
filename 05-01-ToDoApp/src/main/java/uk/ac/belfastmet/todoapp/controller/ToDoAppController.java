@@ -28,10 +28,14 @@ public class ToDoAppController {
 	@RequestMapping(value="", method= RequestMethod.GET)
 	public String homePage(Model model) {
 		//ToDoAppService myToDoService = new ToDoAppService();
+		
+		
 		model.addAttribute("pageTitle","My To Do List");
 		model.addAttribute("tasks",myToDoService.getTasks());
 		logger.info("Index Page Loaded");
-		return "index";
+		
+		myToDoService.getNumberOfTasks();
+		return "index";	
 	}
 	
 	

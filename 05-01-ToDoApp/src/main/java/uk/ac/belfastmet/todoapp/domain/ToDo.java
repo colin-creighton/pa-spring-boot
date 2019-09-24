@@ -89,7 +89,7 @@ public class ToDo {
 		return priority;
 	}
 
-	public void setPriority(short priority) {
+	public void setPriority(int priority) {
 		this.priority = priority;
 	}
 
@@ -103,7 +103,7 @@ public class ToDo {
 	}
 	
 	public String toString() {
-		return title + " " + completionDate;
+		return title + " " + priority;
 	}
 
 
