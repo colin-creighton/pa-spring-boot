@@ -1,5 +1,9 @@
 package uk.ac.belfastmet.todoapp.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="task")
 public class ToDo {
 
 	private String completionDate;
@@ -8,6 +12,7 @@ public class ToDo {
 	private boolean status;
 	private int priority;
 	private String user;
+	private long id;
 
 	
 	/**
@@ -33,7 +38,18 @@ public class ToDo {
 	public ToDo() {
 		super();
 	}
-
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)	
+	public long getId() {
+		return id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	@Column(name = "completion_date")
 	public String getCompletionDate() {
 		return completionDate;
 	}
@@ -42,6 +58,7 @@ public class ToDo {
 		this.completionDate = completionDate;
 	}
 
+	@Column(name = "description")
 	public String getDescription() {
 		return description;
 	}
@@ -50,6 +67,7 @@ public class ToDo {
 		this.description = description;
 	}
 
+	@Column(name = "name")
 	public String getTitle() {
 		return title;
 	}
@@ -66,6 +84,7 @@ public class ToDo {
 		this.status = status;
 	}
 
+	@Column(name = "priority")
 	public int getPriority() {
 		return priority;
 	}
@@ -74,6 +93,7 @@ public class ToDo {
 		this.priority = priority;
 	}
 
+	@Column(name = "user")
 	public String getUser() {
 		return user;
 	}
@@ -85,5 +105,6 @@ public class ToDo {
 	public String toString() {
 		return title + " " + completionDate;
 	}
+
 
 }
