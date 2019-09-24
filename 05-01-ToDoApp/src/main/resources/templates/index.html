@@ -69,9 +69,10 @@ tr {
 
 	<div class="container">
 		<p>Tasks go here</p>
-
+		<!-- Until "logged in"/clicked todo is hidden -->
 		<button type="button" id="loginBtn" onclick="login()"
 			class="btn btn-success">Login</button>
+			<!-- toggles the filter to hide completed tasks -->
 		<button type="button" id="uncompleteBtn" onclick="filterOn()"
 			class="btn" style="visibility: hidden">Toggle Completed
 			Tasks</button>
@@ -89,8 +90,10 @@ tr {
 				</tr>
 			</thead>
 			<tbody>
+			<!-- Each row is assigned a "complete" class which is used to filter tasks -->
 				<tr th:each="task,iter:${tasks}"
 					th:class="${task.status}?'complete'">
+					<!-- When the checkbox is clicked the "complete" task is toggled -->
 					<td class="text-center align-middle"><input type="checkbox"
 						th:checked="${task.status}" th:onchange="setComplete(this)"></td>
 					<td class="text-center align-middle" th:text="${task.title}"></td>
@@ -113,13 +116,14 @@ tr {
 	</div>
 </body>
 <script type="text/javascript">
-<!-- hides the table of tasks until the user has logged in by clicking the button -->
+<!-- loginbtn - hides the table of tasks until the user has logged in by clicking the button -->
 	function login() {
 		document.getElementById("tasksTbl").style.visibility = "visible";
 		document.getElementById("uncompleteBtn").style.visibility = "visible";
 		document.getElementById("loginBtn").style.visibility = "hidden";
 	};
 	var hidden = false;
+	// Triggered by the uncompleteBtn to hide the completed tasks
 	function filterOn() {
 		if (!hidden) {
 			hidden = true;
@@ -129,6 +133,7 @@ tr {
 			hidden = false
 		}
 	};
+	//Triggered by the checkboxes to toggle the status class
 	function setComplete(elemnt) {
 		elemnt.parentElement.parentElement.classList.toggle("complete");
 	}
