@@ -33,7 +33,7 @@ public class DwarfsController {
 	@GetMapping("/disney")
 	public String disneyPage(Model model) {
 		model.addAttribute("pageTitle","Disney Dwarfs");
-		model.addAttribute("dwarfs",dwarfService.getDBDwarfs());
+		model.addAttribute("dwarfs",dwarfService.getDBDisneyDwarfs());
 		
 		return "disney";
 	}

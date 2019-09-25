@@ -1,14 +1,20 @@
 package uk.ac.belfastmet.dwarfs.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import uk.ac.belfastmet.dwarfs.domain.Dwarf;
 import uk.ac.belfastmet.dwarfs.repository.DwarfsRepository;
 
 @Service
 public class DwarfService {
+	
+	Logger logger = LoggerFactory.getLogger(DwarfService.class);
 	
 	@Autowired
 	private DwarfsRepository dwarfRepository;
@@ -61,11 +67,17 @@ public class DwarfService {
 		return allDwarfs;
 	}
 	
-	public Iterable<Dwarf> getDBDisneyDwarfs()
+	public ArrayList<Dwarf> getDBDisneyDwarfs()
 	{
-		Iterable <Dwarf> disneyDwarfs = dwarfRepository.findAll();
-		
-		dwarfRepository.
+		Iterable <Dwarf> allDwarfs = dwarfRepository.findAll();
+		Iterator <Dwarf> iterator = allDwarfs.iterator();
+		while(iterator.hasNext()) {
+			logger.info("{}",iterator.next().toString());
+			if(iterator.next().getAuthor().equals("Tokien")) {
+				disneyDwarfs.add(iterator.next());
+				logger.info(iterator.next().toString());
+			}
+		}
 		return disneyDwarfs;
 	}
 }
