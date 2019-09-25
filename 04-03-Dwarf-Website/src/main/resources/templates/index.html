@@ -12,7 +12,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 	<!-- Custom Styles  -->
 
-<title></title>
+<title th:text="${pageTitle}"></title>
 </head>
 
 <body>
@@ -31,7 +31,7 @@
 </nav>
 <div class="jumbotron text-center">
 
-<h1>Home Page</h1>
+<h1 >Home Page</h1>
 <h2></h2>
 <br />
 
@@ -40,7 +40,22 @@
 
 <div class="container">
 
-<p>This site will contain information about children's movies…
+<p>All Dwarfs in the database</p>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Picture</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="dwarf:${dwarfs}">
+					<td th:text="${dwarf.name}"></td>
+					<td><img th:src="@{|/img/${dwarf.image}|}"/></td>
+				</tr>
+			</tbody>
+		</table>
 
 </div>
 

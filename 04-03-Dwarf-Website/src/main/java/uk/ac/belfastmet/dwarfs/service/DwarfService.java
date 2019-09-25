@@ -1,11 +1,17 @@
 package uk.ac.belfastmet.dwarfs.service;
 
 import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uk.ac.belfastmet.dwarfs.domain.Dwarf;
+import uk.ac.belfastmet.dwarfs.repository.DwarfsRepository;
 
 @Service
 public class DwarfService {
+	
+	@Autowired
+	private DwarfsRepository dwarfRepository;
 	
 	private ArrayList<Dwarf> disneyDwarfs;
 	private ArrayList<Dwarf> tolkienDwarfs;
@@ -43,4 +49,22 @@ public class DwarfService {
 		
 		return this.tolkienDwarfs;
 	}
+	
+	/**
+	 * Get the dwarves from the mysql database
+	 * 
+	 * @return a dwarf iterable 
+	 */
+	public Iterable<Dwarf> getDBDwarfs()
+	{
+		Iterable <Dwarf> allDwarfs = dwarfRepository.findAll();
+		return allDwarfs;
+	}
+	
+	/*public Iterable<Dwarf> getDBDisneyDwarfs()
+	{
+		Iterable <Dwarf> allDwarfs = dwarfRepository.findAll();
+		dwarfRepository.
+		return allDwarfs;
+	}*/
 }
