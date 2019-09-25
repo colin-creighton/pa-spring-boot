@@ -31,7 +31,7 @@
 	<div class="jumbotron text-center">
 
 		<h1>Disney Dwarfs</h1>
-		<h2 ></h2>
+		<h2></h2>
 		<br />
 
 	</div>
@@ -51,7 +51,7 @@
 			<tbody>
 				<tr th:each="dwarf:${dwarfs}">
 					<td th:text="${dwarf.name}"></td>
-					<td><img th:src="@{|/img/${dwarf.image}|}"/></td>
+					<td><img th:src="@{|/img/${dwarf.image}|}" /></td>
 				</tr>
 			</tbody>
 		</table>

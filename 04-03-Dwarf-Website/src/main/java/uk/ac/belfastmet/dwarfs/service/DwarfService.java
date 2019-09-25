@@ -22,6 +22,10 @@ public class DwarfService {
 	private ArrayList<Dwarf> disneyDwarfs;
 	private ArrayList<Dwarf> tolkienDwarfs;
 	
+	/**
+	 * Hardcoded dwarf entries. superceded by getDBDisneyDwarfs
+	 * @return
+	 */
 	public ArrayList<Dwarf> getDisneyDwarfs(){
 		this.disneyDwarfs = new ArrayList<Dwarf>();	
 		
@@ -37,6 +41,10 @@ public class DwarfService {
 		return this.disneyDwarfs;
 	}
 	
+	/**
+	 * Hardcoded dwarf entries. superceded by getDBTolkienDwarfs
+	 * @return
+	 */
 	public ArrayList<Dwarf> getTolkienDwarves(){
 		this.tolkienDwarfs = new ArrayList<Dwarf>();	
 		
@@ -67,17 +75,43 @@ public class DwarfService {
 		return allDwarfs;
 	}
 	
+	/**
+	 * Get the Disney Dwarfs from the database
+	 * 
+	 * @return an arraylist of disney dwarfs
+	 */
 	public ArrayList<Dwarf> getDBDisneyDwarfs()
 	{
 		Iterable <Dwarf> allDwarfs = dwarfRepository.findAll();
 		Iterator <Dwarf> iterator = allDwarfs.iterator();
-		while(iterator.hasNext()) {
-			logger.info("{}",iterator.next().toString());
-			if(iterator.next().getAuthor().equals("Tokien")) {
-				disneyDwarfs.add(iterator.next());
-				logger.info(iterator.next().toString());
+		ArrayList<Dwarf> disneyDwarfs = new ArrayList<Dwarf>();
+		while(iterator.hasNext()) {			
+			Dwarf currentDBDwarf = iterator.next();
+			logger.info("{}",currentDBDwarf.toString());
+			if(currentDBDwarf.getAuthor().equals("Disney")) {
+				disneyDwarfs.add(currentDBDwarf);
 			}
 		}
 		return disneyDwarfs;
+	}
+	
+	/**
+	 * Get the Disney Dwarfs from the database
+	 * 
+	 * @return an arraylist of disney dwarfs
+	 */
+	public ArrayList<Dwarf> getDBTolkienDwarfs()
+	{
+		Iterable <Dwarf> allDwarfs = dwarfRepository.findAll();
+		Iterator <Dwarf> iterator = allDwarfs.iterator();
+		ArrayList<Dwarf> tolkienDwarfs = new ArrayList<Dwarf>();
+		while(iterator.hasNext()) {			
+			Dwarf currentDBDwarf = iterator.next();
+			logger.info("{}",currentDBDwarf+" ");
+			if(currentDBDwarf.getAuthor().equals("Tokien")) {
+				tolkienDwarfs.add(currentDBDwarf);
+			}
+		}
+		return tolkienDwarfs;
 	}
 }
