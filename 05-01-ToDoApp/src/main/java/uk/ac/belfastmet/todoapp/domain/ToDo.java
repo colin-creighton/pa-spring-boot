@@ -16,13 +16,14 @@ public class ToDo {
 
 	
 	/**
-	 * Construct a ToDo Task
-	 * @param completionDate 
-	 * @param description
-	 * @param title
-	 * @param status
-	 * @param priority
-	 * @param user
+	 * ToDo Constructor that accepts the following parameters:
+	 * 
+	 * @param completionDate type String
+	 * @param description type String
+	 * @param title type String
+	 * @param status type Boolean
+	 * @param priority type int
+	 * @param user type String
 	 */
 	public ToDo(String completionDate, String description, String title, boolean status, int priority,
 			String user) {
@@ -35,6 +36,9 @@ public class ToDo {
 		this.user = user;
 	}
 
+	/**
+	 * Default ToDo Constructor
+	 */
 	public ToDo() {
 		super();
 	}
@@ -102,6 +106,11 @@ public class ToDo {
 		this.user = user;
 	}
 	
+	/**
+	 * ToDo toString
+	 * @Returns the Name and Priority of a task
+	 */
+	@Override
 	public String toString() {
 		return title + " " + priority;
 	}

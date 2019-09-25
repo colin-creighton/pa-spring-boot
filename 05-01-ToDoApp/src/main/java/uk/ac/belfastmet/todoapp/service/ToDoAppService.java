@@ -20,6 +20,11 @@ public class ToDoAppService {
 	
 	Logger logger = LoggerFactory.getLogger(ToDoAppService.class);
 	
+	/**
+	 * Get Tasks
+	 * 
+	 * @return A task list 
+	 */
 	public ArrayList<ToDo> getTasks(){
 		this.taskList = new ArrayList<ToDo>();
 		
@@ -42,7 +47,11 @@ public class ToDoAppService {
 		todoRepository.save(new ToDo("27-09-2019","Vaccuum the cat", "Pets", false, 1,"Pugwash"));
 	}*/
 
-	
+	/**
+	 * Get Number Of Tasks
+	 * 
+	 * @return A ToDo Iterable
+	 */
 	public Iterable<ToDo> getNumberOfTasks()
 	{
 		logger.info("# of tasks: {}", todoRepository.count());
@@ -52,5 +61,6 @@ public class ToDoAppService {
 		while(iterator.hasNext()) {
 			logger.info("{}",iterator.next().toString());
 		}
+		return toDoTasks;
 	}
 }

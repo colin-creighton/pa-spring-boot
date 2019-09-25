@@ -36,8 +36,6 @@ public class ToDoAppController {
 		
 		myToDoService.getNumberOfTasks();
 		return "index";	
-	}
-	
-	
+	}		
 
 }
