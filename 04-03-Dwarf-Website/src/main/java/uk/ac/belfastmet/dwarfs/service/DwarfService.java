@@ -61,10 +61,11 @@ public class DwarfService {
 		return allDwarfs;
 	}
 	
-	/*public Iterable<Dwarf> getDBDisneyDwarfs()
+	public Iterable<Dwarf> getDBDisneyDwarfs()
 	{
-		Iterable <Dwarf> allDwarfs = dwarfRepository.findAll();
+		Iterable <Dwarf> disneyDwarfs = dwarfRepository.findAll();
+		
 		dwarfRepository.
-		return allDwarfs;
-	}*/
+		return disneyDwarfs;
+	}
 }
