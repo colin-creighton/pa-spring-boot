@@ -1,5 +1,10 @@
 package uk.ac.belfastmet.dwarfs.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="dwarfpeople")
 public class Dwarf {
 	
 	//instance variables
@@ -9,7 +14,13 @@ public class Dwarf {
 	
 	
 	
-	//constructors
+	/**
+	 * Dwarf Constructor that accepts the following parameters:
+	 * 
+	 * @param name type String
+	 * @param author type String
+	 * @param image type String
+	 */
 	public Dwarf(String name, String author, String image) {
 		super();
 		this.name = name;

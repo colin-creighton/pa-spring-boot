@@ -62,7 +62,7 @@ public class ToDo {
 		this.completionDate = completionDate;
 	}
 
-	@Column(name = "description")
+	//@Column(name = "description")
 	public String getDescription() {
 		return description;
 	}
