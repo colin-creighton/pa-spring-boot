@@ -31,10 +31,10 @@ public class ToDoAppController {
 		
 		
 		model.addAttribute("pageTitle","My To Do List");
-		model.addAttribute("tasks",myToDoService.getTasks());
+		model.addAttribute("tasks",myToDoService.getDBTasks());
 		logger.info("Index Page Loaded");
 		
-		myToDoService.getNumberOfTasks();
+		myToDoService.getDBTasks();
 		return "index";	
 	}		
 

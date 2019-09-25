@@ -52,7 +52,7 @@ public class ToDoAppService {
 	 * 
 	 * @return A ToDo Iterable
 	 */
-	public Iterable<ToDo> getNumberOfTasks()
+	public Iterable<ToDo> getDBTasks()
 	{
 		logger.info("# of tasks: {}", todoRepository.count());
 		
