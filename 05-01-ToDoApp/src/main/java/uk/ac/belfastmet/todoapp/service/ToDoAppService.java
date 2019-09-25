@@ -48,7 +48,7 @@ public class ToDoAppService {
 	}*/
 
 	/**
-	 * Get Number Of Tasks
+	 * Get The Tasks From The MySQL Database
 	 * 
 	 * @return A ToDo Iterable
 	 */
