@@ -37,15 +37,6 @@ public class ToDoAppService {
 		logger.info("Tasks loaded");
 		return taskList;
 	}
-	
-	/*@Override
-	public void run(String...args) throws Exception{
-		todoRepository.save(new ToDo("23-09-2019","Deliver award winning presentation", "TedTalk", false, 3,"Colin"));
-		todoRepository.save(new ToDo("24-09-2019","Learn how to handstand", "Gymnastics", true, 2,"Albus"));
-		todoRepository.save(new ToDo("25-09-2019","Write million pound app", "Code", false, 1,"Kvoth"));
-		todoRepository.save(new ToDo("26-09-2019","Wash the dishes", "Chores", true, 3,"Geralt"));
-		todoRepository.save(new ToDo("27-09-2019","Vaccuum the cat", "Pets", false, 1,"Pugwash"));
-	}*/
 
 	/**
 	 * Get The Tasks From The MySQL Database
