@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 import uk.ac.belfastmet.dwarfs.service.DwarfService;
 
+/**
+ * 
+ * @author cre19171872
+ *
+ */
 @Controller
 @RequestMapping
 public class DwarfsController {

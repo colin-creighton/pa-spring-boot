@@ -5,7 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * 
+ * @author cre19171872
+ *
+ */
 @Entity
 @Table(name = "tbldwarfpeople")
 public class Dwarf {

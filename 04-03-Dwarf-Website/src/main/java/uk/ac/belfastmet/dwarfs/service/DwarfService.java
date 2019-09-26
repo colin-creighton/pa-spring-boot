@@ -11,6 +11,13 @@ import org.springframework.stereotype.Service;
 import uk.ac.belfastmet.dwarfs.domain.Dwarf;
 import uk.ac.belfastmet.dwarfs.repository.DwarfsRepository;
 
+
+/**
+ * 
+ * @author cre19171872
+ *
+ */
+
 @Service
 public class DwarfService {
 	
